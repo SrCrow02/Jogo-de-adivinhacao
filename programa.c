@@ -1,18 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
 
 int main(){
 
-    int numerosecreto = 42;
+    int segundos = time(0);
+    srand(segundos);
 
+    int numeroGrande = rand();
+
+    int numerosecreto = numeroGrande % 100;
     int chute;   
-
     int ganhou = 0; 
-
     int tentativas = 1;
 
     double pontos = 1000;
     int novosPontos = pontos * 2;
+
+    int numeroDeTentativas = 5;
 
     printf("*************************************************\n");
     printf("Hello Word! Bem vindo ao jogo de Adivinhação.\n");
