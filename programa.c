@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
 
@@ -9,6 +10,9 @@ int main(){
     int ganhou = 0; 
 
     int tentativas = 1;
+
+    double pontos = 1000;
+    int novosPontos = pontos * 2;
 
     printf("*************************************************\n");
     printf("Hello Word! Bem vindo ao jogo de Adivinhação.\n");
@@ -39,7 +43,12 @@ int main(){
         } else if(chute < numerosecreto){
             printf("\nSeu chute foi menor que o numero secreto, Você errou.");
         }
-        tentativas ++ 1;
+
+        double pontosPerdidos = abs(chute - numerosecreto) / (double)2;
+        pontos = pontos - pontosPerdidos;
+
+        tentativas += 1;
     }   
     printf("Fim de jogo!");
+    printf("Pontos: %.1f", pontos);
 }   
